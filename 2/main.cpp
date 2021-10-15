@@ -14,26 +14,23 @@
 
 using namespace std;
 
-void swap (int *a, int *b)
+void change (int *pArray)
 {
-    int temp = *a;
-    *a = *b;
-    *b = temp;
+    for (int i=0; i<5; i++)
+    {
+        int temp = *(pArray + i);
+        *(pArray + i) = *(pArray + 9 - i);
+        *(pArray + 9 - i) = temp;
+    }
 }
 
 int main() {
-    int ar[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-    int *a, *b;
+    int array[10]  = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 
-    for (int i=0; i<5; i++)
-    {
-        a=ar+i;
-        b=ar+9-i;
-        swap (a, b);
-    }
+    change(array);
 
     for (int i=0; i<10; i++)
     {
-        cout << ar[i] << " ";
+        cout << array[i] << " ";
     }
 }
